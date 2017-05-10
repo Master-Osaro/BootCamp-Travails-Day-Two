@@ -43,6 +43,10 @@ exports.datatype = (value) =>{
     	}
     	
     }
-
+    else if (typeof value === "function")
+    {
+        return value(true);
+    }
+    
 
 }

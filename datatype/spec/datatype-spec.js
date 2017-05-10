@@ -30,3 +30,14 @@ describe("Datatype functions",function(){
        expect(data.datatype([4, 9])).not.toBeDefined();
    });
 });
+describe("Case for functions", function() {
+    it("should call the `callback` function with argument true, and return `called callback`", function() {
+       var callback = function(arg) {
+        expect(arg).toBeTruthy();
+        if(arg === true) {
+          return 'called callback';
+        }
+      };
+      expect(data.datatype(callback)).toBe('called callback');
+    });
+});
