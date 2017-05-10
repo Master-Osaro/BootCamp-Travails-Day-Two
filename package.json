@@ -1,0 +1,15 @@
+{
+  "name": "Findminmax",
+  "version": "1.0.0",
+  "description": "function to find the minimum and maximum numbers in an array",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "author": "Osaro Iyoha",
+  "license": "ISC",
+  "devDependencies": {
+    "jasmine": "^2.6.0",
+    "jasmine-node": "^1.14.5"
+  }
+}
