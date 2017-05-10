@@ -1,4 +1,5 @@
 function circle(type,radius) {
+ //this is a circle class with functions
     this.type = type;
     this.radius = radius;
     this.Pi = Math.PI;
