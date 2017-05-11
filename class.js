@@ -1,50 +1,79 @@
-function circle(type,radius) {
- //this is a circle class with functions
-    this.type = type;
-    this.radius = radius;
-    this.Pi = Math.PI;
-    this.getInfo = getShapeInfo;
-    this.diameter = getDiameter;
-    this.circumference = getCircumference;
-    this.area = getArea;
-    this.lenghtOfArc = getLengthOfArc;
-    this.areaOfSector = getAreaOfSector;   
-}
-function getShapeInfo() {
-    return this.type + ' Properties: ' ;
-}
-function getDiameter() {
-	let D = 2 * this.radius;
-	return "Diameter of the Circle is: " + D;
-}
-function getCircumference(){
-    let Circumference = 2 * this.radius* this.Pi;
-	return "Circumference of the Circle is: " + Circumference.toFixed(2).toString();
 
-}
-function getArea(){
-	R = this.radius;
-	Pi = this.Pi;
-	let _Area = Pi * Math.pow(R,2);
-	return "Area of the Circle is: " + _Area.toFixed(2).toString();
-}
+    class Dogs  //super class delaration
+    {
+        constructor(breed, color_, lifeExpectancy, cost)//class constructor
+       {
+            this.breed = breed || "Dog Breed"; 
+            this.color_ = color_ || "No Color" ;
+            this.lifeExpectancy = lifeExpectancy  || "No Life Expectancy" ;
+            this.cost = cost || "No Cost";
+        }
 
-function getLengthOfArc(Tita){
-	R = this.radius;
-	Pi = this.Pi;
-    let LengthOfArc = Tita * (Pi/180) * R;
-    return "Length of an Arc in this Circle with an angle of " + Tita + " is " + LengthOfArc.toFixed(2).toString()
-}
-function getAreaOfSector(Tita){
-    R = this.radius;
-	Pi = this.Pi;
-    let AreaOfSector = (Tita/360)*Pi*Math.pow(R,2);
-    return "Area of a sector in this Circle with an angle of " + Tita + " is " +AreaOfSector.toFixed(2).toString();
-}
-let Circle1 = new circle('Circle',10);
-console.log(Circle1.getInfo());
-console.log(Circle1.diameter());
-console.log(Circle1.circumference());
-console.log(Circle1.area());
-console.log(Circle1.lenghtOfArc(30));
-console.log(Circle1.areaOfSector(30));
+        getInfo()
+
+        {
+
+            return `${this.breed} ${this.color_} ${this.lifeExpectancy} for ${this.cost}`;  
+
+        }
+
+    }
+
+    class wildDogs extends Dogs //class wildDogs inherits from the dogs class
+
+    {
+       constructor(breed, color_, lifeExpectancy, cost)
+        {
+            super(breed, color_, lifeExpectancy, cost); 
+            this.sprintSpeed = '2km/min';
+            this.isHomeFriendly = false;            
+        }
+
+        getsprintSpeed()
+
+        {
+
+            return this.sprintSpeed;
+
+        }
+        
+        isFriendly()
+        {
+           return this.isHomeFriendly
+
+        }
+
+        cost()
+        {
+            return  this.color_;  
+
+        }
+
+        details () 
+        {
+
+            console.log(' Dog breed is '+ this.breed + ',color' + this.color_ + '.It is available for '  + '$'+this.cost+ ' Life Expectancy is ' + this.lifeExpectancy);
+
+        }
+        getInfo(speed, unit)                                 //method overriding and overload a form of polymorphism. Overrides getinfo method from super class
+        {
+            console.log("Distance travelled every one hour is: " + speed + unit)
+        }
+
+    }
+
+    
+
+    class domesticDogs extends Dogs //inheritance
+
+    {
+
+        constructor(breed, color_, lifeExpectancy, cost) //class constructor
+        {
+            super(breed, color_, lifeExpectancy, cost);
+            this.weightCapacity = weightCapacity;
+        }
+    }
+
+let dog1 = new wildDogs('Wolf','white','3yrs',400)
+console.log(dog1.getInfo(5, 'km/h'))                         //encapsulation using the getInfo method without needing to know how it works
